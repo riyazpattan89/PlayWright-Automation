@@ -13,12 +13,14 @@ test('test', async ({page})=>{
     await page.waitForTimeout(3000)
 
     const homescreen=new AmazonHomePage(page);
-    await homescreen.amazonfresh();
+    await homescreen.usersamazonproducts();
     await page.waitForTimeout(3000)
-   await homescreen.findoneprodfromlist('Oil & ghee');
-   await page.waitForTimeout(2000)
-    await homescreen.justoil();
-   // await page.waitForTimeout(2000)
 
+    
+   await homescreen.findoneprodfromlist("Mamaearth Gentle Cleansing Shampoo for Babies | Infused with Coconut, Jojoba Oil, Calendula Extract & Aloe Vera Extract | Tear-Free Natural Shampoo | 400 ml");
+   await page.waitForTimeout(5000)
+   
+ //   await homescreen.justoil();
+   // await page.waitForTimeout(2000)
 
 }); 
