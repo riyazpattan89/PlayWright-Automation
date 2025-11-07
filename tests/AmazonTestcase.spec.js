@@ -2,6 +2,7 @@ import {test, expect} from '@playwright/test';
 import { LoginPage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/LoginPage.js';
 import { AmazonHomePage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/Amazonhomepage.js';
 
+// Make sur ethe POM path are correct before running the test
 
 test('test', async ({page})=>{
     //Login to Amazon application
