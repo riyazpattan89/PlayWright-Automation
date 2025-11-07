@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
-import { LoginPage } from 'C:/Users/rp62040/plywriteautomation/node_modules/pages/LoginPage';
-import { AmazonHomePage } from 'C:/Users/rp62040/plywriteautomation/node_modules/pages/amazonhomepage';
+import { LoginPage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/LoginPage.js';
+import { AmazonHomePage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/Amazonhomepage.js';
 
 
 test('test', async ({page})=>{
