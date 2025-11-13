@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:all": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js /AmznautosuggestsearchTV.spec.js /Amzncodegenclickalllinks.spec.js /Amznhomepage.spec.js /Logotest.spec.js --project=chromium",
+    "test:multi": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js --project=chromium --headed",
+    "test:smoke": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js --project=chromium --headed",
+    "test:regression": "npx playwright test tests/regression/",
+    "test:browsers": "npx playwright test --project=chromium --project=firefox --project=webkit"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,4 +20,5 @@
     "@types/node": "^24.3.1"
   }
 }
+
 
