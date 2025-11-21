@@ -21,11 +21,12 @@ export default defineConfig({
   /* Retry on CI only */
   //retries: process.env.CI ? 2 : 0,
   /* Retry the failed test case again on VS Code editor only */
-  retries:1,
+  retries:0,
     /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html'],['line'],['allure-playwright']],
+  timeout: 120000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -33,8 +34,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: "only-on-failure",
-    video:"off"
+    screenshot: "on",
+    video:"on"
   },
 
   /* Configure projects for major browsers */
@@ -83,3 +84,4 @@ export default defineConfig({
   // },
 });
 
+reporter: [["html"], ["line"], ["allure-playwright"]],

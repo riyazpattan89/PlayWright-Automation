@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demoqa.com/automation-practice-form');
+  await page.getByRole('textbox', { name: 'First Name' }).click();
+  await page.getByRole('textbox', { name: 'First Name' }).fill('johan');
+  await page.getByRole('textbox', { name: 'First Name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Last Name' }).fill('peter');
+  await page.getByRole('textbox', { name: 'Last Name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'name@example.com' }).fill('johnp@gmail.com');
+  await page.getByRole('textbox', { name: 'name@example.com' }).press('Tab');
+  await page.getByRole('radio', { name: 'Male', exact: true }).check();
+  await page.getByRole('radio', { name: 'Male', exact: true }).press('Tab');
+  await page.getByText('Male', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Mobile Number' }).click();
+  await page.getByRole('textbox', { name: 'Mobile Number' }).fill('9888787876');
+  await page.locator('#dateOfBirthInput').click();
+  await page.locator('#dateOfBirthInput').fill('18 Nov 1987');
+  await page.locator('#dateOfBirthInput').press('Tab');
+  await page.locator('.subjects-auto-complete__value-container').click();
+  await page.locator('#subjectsInput').fill('codegentest');
+  await page.getByText('Sports').click();
+  await page.getByRole('textbox', { name: 'Current Address' }).click();
+  await page.getByRole('textbox', { name: 'Current Address' }).fill('hyderabad');
+  await page.locator('div').filter({ hasText: /^Select State$/ }).nth(3).click();
+  await page.getByText('NCR', { exact: true }).click();
+  await page.getByText('Select City').click();
+  await page.getByText('Delhi', { exact: true }).click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await expect(page.locator('#example-modal-sizes-title-lg')).toContainText('Thanks for submitting the form');
+});
