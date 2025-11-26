@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:all": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js /AmznautosuggestsearchTV.spec.js /Amzncodegenclickalllinks.spec.js /Amznhomepage.spec.js /Logotest.spec.js --project=chromium",
+    "test:all": "npx playwright test /AmazonBabycare.spec.ts /AmazonDeviceBPmachine.spec.ts /AmznautosuggestsearchTV.spec.js /Amzncodegenclickalllinks.spec.js /Amznhomepage.spec.js /Logotest.spec.js --project=chromium",
     "test:multi": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js --project=chromium --headed",
-    "test:smoke": "npx playwright test /AmazonBabycare.spec.js /AmazonDeviceBPmachine.spec.js --project=chromium --headed",
+    "test:smoke": "npx playwright test --grep \"@smoke\" --headed",
     "test:regression": "npx playwright test tests/regression/",
     "test:browsers": "npx playwright test --project=chromium --project=firefox --project=webkit"
   },
@@ -16,9 +16,12 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^24.3.1",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.2"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
   }
 }

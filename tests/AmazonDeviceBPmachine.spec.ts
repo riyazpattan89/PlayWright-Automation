@@ -1,30 +1,47 @@
 import {test, expect} from '@playwright/test';
-import { LoginPage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/LoginPage.js';
-import { AmazonHomePage } from 'C:/Users/rp62040/playwriteautomation/node_modules/pages/Amazonhomepage.js';
+import AmazonHomePage from './pages/AmazonHomePage';
+import AmazonLoginPage from './pages/AmazonLoginPage';
+import AmazonProductsPages from './pages/AmazonProductspages';
+import testdataJson from './utils/testdata.json';
+const testdata = testdataJson;
+
 
 
 //const {test, expect}=require('@playwright/test')
-test('MEATSELECTION', async ({page}) => {
-const login=new LoginPage(page);
-    await login.gotoLoginPage();
-    await login.login('riyajpattan@gmail.com','Riyaz@123')
-   page.on('dialog', async dialog=>{
-    await dialog.dismiss(); 
-    await page.waitForTimeout(3000)
-   });
+test('MACHINE SEARCH VIA HOME DROPDOWN', async ({page}) => {
+const login=new AmazonLoginPage(page);
+    await login.goto();
+     await login.login(testdata.email,testdata.password)
+  /* page.on('dialog', async dialog=>{
+    await dialog.dismiss(); */
+    
 
 //Category selection from the homepage search dropdown page object from Amazon homepage
+/*const hm=new AmazonHomePage(page);
+await hm.clickonhomedropdown;
+
+*/
+//select homepage dropdown option
+await page.selectOption('#searchDropdownBox', 'Amazon Pharmacy');
+await page.waitForTimeout(3000) 
+
+
 const hm=new AmazonHomePage(page);
-await hm.selectCategory ('Amazon Pharmacy')
-await page.locator(hm.homepagesearchbutton).click();
+      hm.onlysearch
+
+      const monitors=new AmazonProductsPages(page);
+            monitors.BPmonitormachines 
+}); 
+
+/*await page.locator(hm.homepagesearchbutton).click();
 
 await page.waitForTimeout(1000);
 // Click on the BP monitors image on the Amazon Pharmacy page
 await hm.findbpmachine('Morepen');
 await page.waitForTimeout(2000);
-
+*/
    
-});
+
 //const fromCityOptions=await page.$$("//select[@id='searchDropdownBox']//option")
    
 
@@ -53,6 +70,6 @@ if(value.includes('Amazon Devices'))
 {
 await option.click();
 break; 
-} */
+*/
 //await page.waitForTimeout(5000);
 

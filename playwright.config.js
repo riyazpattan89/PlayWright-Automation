@@ -25,7 +25,7 @@ export default defineConfig({
     /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'],['line'],['allure-playwright']],
+  reporter: [['html']],
   timeout: 120000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -82,6 +82,7 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
 
-reporter: [["html"], ["line"], ["allure-playwright"]],
+  
+
+}); 
